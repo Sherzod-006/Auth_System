@@ -14,6 +14,12 @@ const app = express();
 app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE,PATCH" }));
 app.use(express.json());
 
+//IMPORTING ROUTES
+const userRoutes = require("./routes/UserRoute");
+
+//USING ROUTES
+app.use("/api/users", userRoutes);
+
 sequelize
   .authenticate()
   .then(() => {
