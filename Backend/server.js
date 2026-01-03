@@ -4,6 +4,9 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const sequelize = require("./config/mysql_db");
 
+//IMPORTING MODELS
+require("./models/UserModel");
+
 //CONFIGURING ENVIRONMENT VARIABLES
 dotenv.config();
 const app = express();
@@ -19,6 +22,10 @@ sequelize
         `Server is running on port ${process.env.PORT} and MySQL connected successfully.`
       );
     });
+    return sequelize.sync({ alter: true });
+  })
+  .then(() => {
+    console.log("✅ Database synchronized successfully.");
   })
   .catch((err) => {
     console.error("❌ MySQL connection error:", err);
