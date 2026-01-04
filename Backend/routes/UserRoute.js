@@ -8,16 +8,6 @@ const {
   deleteUser,
 } = require("../controllers/UserController");
 
-// Create user
-router.post("/", async (req, res) => {
-  try {
-    const user = await User.create(req.body);
-    res.status(201).json(user);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
-
 //Route for getting all users
 router.get("/", getAllUsers);
 
