@@ -3,6 +3,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const sequelize = require("./config/mysql_db");
+const cookieParser = require("cookie-parser");
 
 //IMPORTING MODELS
 require("./models/UserModel");
@@ -13,6 +14,7 @@ const app = express();
 
 app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE,PATCH" }));
 app.use(express.json());
+app.use(cookieParser());
 
 //IMPORTING ROUTES
 const userRoutes = require("./routes/UserRoute");
