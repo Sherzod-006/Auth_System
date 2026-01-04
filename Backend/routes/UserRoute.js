@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/UserModel");
+const AuthMiddleware = require("../middlewares/TokenVerify");
 const {
   getAllUsers,
   getUserById,
@@ -12,12 +12,12 @@ const {
 router.get("/", getAllUsers);
 
 //Route for getting user by ID
-router.get("/:id", getUserById);
+router.get("/:id", AuthMiddleware, getUserById);
 
 //Route for updating user
-router.put("/:id", updateUser);
+router.put("/:id", AuthMiddleware, updateUser);
 
 //Route for deleting user
-router.delete("/:id", deleteUser);
+router.delete("/:id", AuthMiddleware, deleteUser);
 
 module.exports = router;
