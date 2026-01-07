@@ -1,15 +1,13 @@
 //IMPORTING DEPENDENCIES
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
 const sequelize = require("./config/mysql_db");
 const cookieParser = require("cookie-parser");
+const express = require("express");
+const cors = require("cors");
 
-//IMPORTING MODELS
+require("dotenv").config();
 require("./models/UserModel");
 
 //CONFIGURING ENVIRONMENT VARIABLES
-dotenv.config();
 const app = express();
 
 app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE,PATCH" }));

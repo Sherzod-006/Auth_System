@@ -4,12 +4,13 @@ const authMiddleware = (req, res, next) => {
   const token = req.cookies.token;
 
   if (!token) {
-    return res.status(401).json({ message: "Invalid token format or missing" });
+    return res
+      .status(401)
+      .json({ message: "Missing or invalid token format!!!" });
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
+    req.user = jwt.verify(token, process.env.JWT_SECRET);
     next();
   } catch (error) {
     return res.status(401).json({ message: "Expired token" });
