@@ -23,10 +23,12 @@ const User = sequelize.define("User", {
   img_url: {
     type: DataTypes.STRING,
     allowNull: true,
+    defaultValue: process.env.DEFAULT_PROFILE_PIC_URL,
   },
   img_public_id: {
     type: DataTypes.STRING,
     allowNull: true,
+    defaultValue: process.env.DEFAULT_PROFILE_PIC_ID,
   },
   age: {
     type: DataTypes.INTEGER,
