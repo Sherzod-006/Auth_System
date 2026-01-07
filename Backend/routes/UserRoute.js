@@ -1,6 +1,7 @@
 const express = require("express");
-const router = express.Router();
+const { upload } = require("../config/cloudinary");
 const AuthMiddleware = require("../middlewares/TokenVerify");
+const router = express.Router();
 const {
   getAllUsers,
   getUserById,
@@ -15,7 +16,7 @@ router.get("/", getAllUsers);
 router.get("/:id", AuthMiddleware, getUserById);
 
 //Route for updating user
-router.put("/:id", AuthMiddleware, updateUser);
+router.put("/:id", AuthMiddleware, upload.single("image"), updateUser);
 
 //Route for deleting user
 router.delete("/:id", AuthMiddleware, deleteUser);

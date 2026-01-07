@@ -1,4 +1,5 @@
 const User = require("../models/UserModel");
+const { cloudinary } = require("../config/cloudinary");
 
 //GET ALL USERS
 exports.getAllUsers = async (req, res) => {
@@ -32,7 +33,18 @@ exports.updateUser = async (req, res) => {
     }
 
     await user.update(req.body);
-    res.json(user);
+
+    if (req.file) {
+      if (user.img_public_id !== process.env.DEFAULT_PROFILE_PIC_ID) {
+        await cloudinary.uploader.destroy(user.img_public_id);
+      }
+      user.img_url = req.file.path;
+      user.img_public_id = req.file.filename;
+
+      await user.save();
+    }
+
+    res.json({ message: "User updated successfully", user });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
