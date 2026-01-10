@@ -17,3 +17,5 @@ To update user:
 
 To delate user:
 ...//api/users/:id
+
+![LIONAUTH Logo](./assets/imgs/LionAuthImg.png)
