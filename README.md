@@ -1,4 +1,4 @@
-# Auth_System
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/711fb96b-2064-41db-a2cd-f8cef832fa52" /># Auth_System
 
 For SignUp new user:
 ...//api/auth/signup
@@ -17,3 +17,5 @@ To update user:
 
 To delate user:
 ...//api/users/:id
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/199c0f47-1db0-4ef8-b86f-888450cc1982" />
+
