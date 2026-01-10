@@ -1,4 +1,4 @@
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/711fb96b-2064-41db-a2cd-f8cef832fa52" /># Auth_System
+# Auth_System
 
 For SignUp new user:
 ...//api/auth/signup
